@@ -1,13 +1,40 @@
-import {Song} from './Song';
-import {Section} from './Section';
-import {Line} from './Line';
-import {chunk, flatten, trim} from 'lodash';
-import {Part} from './Part';
+const _ = require('lodash');
 
-export class SongPro {
+class Song {
+    constructor() {
+        this.attrs = {};
+        this.sections = [];
+        this.custom = {};
+    }
+}
+
+class Section {
+    constructor(name) {
+        this.name = name;
+        this.lines = [];
+    }
+}
+
+class Part {
+    constructor() {
+        this.chord = null;
+        this.lyric = null;
+    }
+}
+
+class Line {
+    constructor() {
+        this.parts = [];
+    }
+}
+
+
+class SongPro {
     static parse(text) {
         let song = new Song();
         let currentSection = null;
+
+        console.log(text)
 
         const lines = text.split('\n');
 
@@ -75,8 +102,8 @@ export class SongPro {
         let line = new Line();
 
         let captures = this.scan(text, /(\[[\w#b/]+])?([\w\s',.!()_\-"]*)/gi);
-        captures = flatten(captures);
-        let groups = chunk(captures, 2);
+        captures = _.flatten(captures);
+        let groups = _.chunk(captures, 2);
 
 
         for (let i = 0; i < groups.length; i++) {
@@ -97,8 +124,8 @@ export class SongPro {
                 lyric = '';
             }
 
-            part.chord = trim(chord);
-            part.lyric = trim(lyric);
+            part.chord = _.trim(chord);
+            part.lyric = _.trim(lyric);
 
             if (!(part.chord === '' && part.lyric === '')) {
                 line.parts.push(part);
@@ -117,3 +144,5 @@ export class SongPro {
         return results;
     }
 }
+
+module.exports = SongPro

@@ -5,24 +5,7 @@
   "keywords": [],
   "author": "Brian Kelly",
   "license": "MIT",
-  "main": "dist/songpro.js",
-  "scripts": {
-    "test": "jest --coverage",
-    "lint": "eslint --fix src/**/*.js",
-    "webpack": "webpack",
-    "build": "npm run lint && npm test && npm run webpack"
-  },
-  "devDependencies": {
-    "@webpack-cli/init": "^0.3.0",
-    "babel-core": "^7.0.0-0",
-    "babel-loader": "^7.1.5",
-    "babel-plugin-syntax-dynamic-import": "^6.18.0",
-    "babel-preset-env": "^1.7.0",
-    "eslint": "^5.16.0",
-    "lodash": "^4.17.15",
-    "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10"
-  },
+  "main": "src/songpro.js",
   "dependencies": {
     "lodash": "^4.17.15"
   }
