@@ -100,8 +100,8 @@ class SongPro {
         let line = new Line();
 
         let captures = this.scan(text, /(\[[\w#b/]+])?([\w\s',.!()_\-"]*)/gi);
-        captures = flatten(captures);
-        let groups = chunk(captures, 2);
+        captures = _.flatten(captures);
+        let groups = _.chunk(captures, 2);
 
 
         for (let i = 0; i < groups.length; i++) {
@@ -122,8 +122,8 @@ class SongPro {
                 lyric = '';
             }
 
-            part.chord = trim(chord);
-            part.lyric = trim(lyric);
+            part.chord = _.trim(chord);
+            part.lyric = _.trim(lyric);
 
             if (!(part.chord === '' && part.lyric === '')) {
                 line.parts.push(part);
