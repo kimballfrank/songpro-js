@@ -1,10 +1,35 @@
-import {Song} from './Song';
-import {Section} from './Section';
-import {Line} from './Line';
-import {chunk, flatten, trim} from 'lodash';
-import {Part} from './Part';
+const _ = require('lodash');
 
-export class SongPro {
+class Song {
+    constructor() {
+        this.attrs = {};
+        this.sections = [];
+        this.custom = {};
+    }
+}
+
+class Section {
+    constructor(name) {
+        this.name = name;
+        this.lines = [];
+    }
+}
+
+class Part {
+    constructor() {
+        this.chord = null;
+        this.lyric = null;
+    }
+}
+
+class Line {
+    constructor() {
+        this.parts = [];
+    }
+}
+
+
+class SongPro {
     static parse(text) {
         let song = new Song();
         let currentSection = null;
@@ -117,3 +142,5 @@ export class SongPro {
         return results;
     }
 }
+
+module.exports = SongPro
