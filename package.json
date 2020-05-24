@@ -6,9 +6,6 @@
   "author": "Brian Kelly",
   "license": "MIT",
   "main": "dist/songpro.js",
-  "files": [
-    "dist/songpro.js"
-  ],
   "scripts": {
     "test": "jest --coverage",
     "lint": "eslint --fix src/**/*.js",
@@ -17,7 +14,7 @@
   },
   "devDependencies": {
     "@webpack-cli/init": "^0.3.0",
-    "babel-core": "^6.26.3",
+    "babel-core": "^7.0.0-0",
     "babel-loader": "^7.1.5",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "babel-preset-env": "^1.7.0",
